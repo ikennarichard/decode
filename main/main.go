@@ -2,9 +2,10 @@ package main
 
 import (
 	"fmt"
+	"strings"
 )
 
-var morseCodes = map[string]any{
+var morseCodes = map[string]string{
 		".-":   "A",
 		"-...": "B",
 		"-.-.": "C",
@@ -43,7 +44,7 @@ var morseCodes = map[string]any{
 		"----.":	"9",
 }
 
-func decodeChar(char string)any {
+func decodeChar(char string)string {
 	return morseCodes[char]
 }
 
@@ -69,4 +70,6 @@ func decodeMessage(morseCode string)string{
 
 func main() {
 	fmt.Println(decodeChar(".-"))
+	fmt.Println(decodeWord("--  -.--"))
+	fmt.Println(decodeMessage(".-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ..."))
 }
