@@ -47,6 +47,26 @@ func decodeChar(char string)any {
 	return morseCodes[char]
 }
 
+func decodeWord(morseCode string)string{
+	splits := strings.Fields(morseCode)
+	var word string
+
+	for _, code := range splits {
+		word += morseCodes[code]
+	}
+	return word
+}
+
+func decodeMessage(morseCode string)string{
+	splits := strings.Split(morseCode, "  ")
+	var message string
+
+	for _, code := range splits {
+		message += decodeWord(code)+" "
+	}
+	return strings.TrimSpace(message)
+}
+
 func main() {
 	fmt.Println(decodeChar(".-"))
 }
